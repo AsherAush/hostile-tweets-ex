@@ -13,7 +13,7 @@ class TextProcessor:
         self.df = pd.DataFrame(data)
 
     def rare_word(self):
-        """מצא את המילה הנדירה ביותר בכל טקסט והוסף שדה חדש"""
+        # found the rarest word in each text
         rare_words = []
         for text in self.df['Text']:
             words = text.lower().split()
@@ -23,7 +23,7 @@ class TextProcessor:
         return rare_words
 
     def sentiment(self):
-        """חשב את הרגש של כל טקסט והוסף שדה חדש"""
+        # Perform sentiment analysis on each text
         sentiments = []
         for text in self.df['Text']:
             score=SentimentIntensityAnalyzer().polarity_scores(text)
@@ -38,7 +38,7 @@ class TextProcessor:
         return sentiments
 
     def weapon_detection(self, blacklist_file):
-        """מצא כלי נשק מהרשימה השחורה"""
+        # Detect weapons in the text based on a blacklist
         with open(blacklist_file, 'r') as f:
             blacklist = [line.strip() for line in f.readlines()]
 
@@ -55,7 +55,7 @@ class TextProcessor:
         return weapons
 
     def get_df(self):
-        """החזר את ה-DataFrame המעובד"""
+        # Process the DataFrame and return the processed items
 
         rare_words = self.rare_word()
         sentiments = self.sentiment()
