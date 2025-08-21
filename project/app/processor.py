@@ -72,10 +72,10 @@ class TextProcessor:
         return self.procesdb
 
 
-mongodb = fetcher.Connection()
-tweets = mongodb.get_data_frame()
-processor = TextProcessor(tweets)
-result = processor.get_df()
-for item in result:
-    print(item)
-    print("-------------------------")
+# mongodb = fetcher.Connection()
+# tweets = mongodb.get_data_frame()
+# processor = TextProcessor(tweets)
+# result = processor.get_df()
+# for item in result:
+#     print(item)
+#     print("-------------------------")
